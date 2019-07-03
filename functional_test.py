@@ -8,7 +8,7 @@ browser = webdriver.Firefox(executable_path='/home/jeojeup/Development/unittest_
 browser.get('http://localhost:8000')
 
 # She notices the page title & header mention to-do lists
-assert 'Django' in browser.title
+assert 'TO-DO' in browser.title
 
 # She is invited to enter a to-do item straight away
 
