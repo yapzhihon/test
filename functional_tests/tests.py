@@ -4,12 +4,16 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
 
 
+import os
 import time
 
 MAX_WAIT = 10
 class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox(executable_path='/home/jeojeup/Development/unittest_env/geckodriver.exe')
+        staging_server = os.environ.get('STAGING_SERVER')
+        if staging_server:
+            self.live_server_url = "http://" + staging_server
     def tearDown(self):
         self.browser.quit()
     def check_for_row_in_list_table(self, row_text):
