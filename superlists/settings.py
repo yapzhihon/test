@@ -24,8 +24,8 @@ SECRET_KEY = '6zs7i)2==ffp8vp6a@hzby$y38rc6n=uaj(d9dk1ojpx#sw9)n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['unittest-tut.herokuapp.com']
+# 'unittest-tut.herokuapp.com'
+ALLOWED_HOSTS = []
 
 
 # Application definition
