@@ -8,4 +8,8 @@ window.Superlists.initialize = function () {
         console.log('in keypress handler');
         $('.has-error').hide();
     });
+    $('input[name="text"]').on('click', function(){
+        console.log('in keypress handler');
+        $('.has-error').hide();
+    });
 }
