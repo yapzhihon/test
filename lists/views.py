@@ -30,8 +30,16 @@ def new_list(request):
 
 def my_lists(request, email):
     owner = User.objects.get(email=email)
-    return render(request, 'my_lists.html', {'owner': owner})
+    shared_lists = List.objects.filter(shared_with=owner)
+    return render(request, 'my_lists.html', {'owner': owner, 'shared_lists': shared_lists})
 
 def share_list(request, list_id):
     list_ = List.objects.get(id=list_id)
-    return redirect(f'/lists/{list_.id}/')
+    if request.method == 'POST':
+        try:
+            shared_user = User.objects.get(email=request.POST.get('sharee'))
+            list_.add(shared_user)
+            list_.save()
+        except User.DoesNotExist:
+            pass
+    return render(request, 'list.html', {'list': list_})

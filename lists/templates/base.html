@@ -46,7 +46,6 @@
             <div class="col-md-6 col-md-offset-3 jumbotron">
                 <div class="text-center">
                     <h1>{% block header_text %}{% endblock %}</h1>
-                    {% block share_form %}{% endblock %}
                     {% block list_form %}
                     <form method="POST" action='{% block form_action %}{% endblock %}'>
                         {{ form.text }}
@@ -71,6 +70,14 @@
             <div class="col-md-6 col-md-offset-3">
                 {% block extra_content %}
                 {% endblock %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3">
+                {% block share_list %}{% endblock %}
+            </div>
+            <div class="col-md-3">
+                {% block share_form %}{% endblock %}
             </div>
         </div>
 
