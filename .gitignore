@@ -7,3 +7,5 @@ __pycache__
 geckodriver.exe
 /static
 functional_tests/screendumps
+/.scannerwork/
+/.idea/
