@@ -10,4 +10,4 @@ before_install:
   - mkdir geckodriver
   - tar -xzf geckodriver-v0.25.0-linux64.tar.gz -C geckodriver
   - export PATH=$PATH:$PWD/geckodriver
-  - printf $PATH
+  - printf '%s' $PATH
