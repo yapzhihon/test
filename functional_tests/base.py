@@ -5,6 +5,7 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.options import Options
 
 import os
 import time
@@ -32,7 +33,9 @@ def wait(fn):
 
 class FunctionalTest(StaticLiveServerTestCase):
     def setUp(self):
-        self.browser = webdriver.Firefox(executable_path='/home/jeojeup/Development/unittest_env/geckodriver.exe')
+        options = Options()
+        options.add_argument('-headless')
+        self.browser = webdriver.Firefox(firefox_options=options)
         # staging_server = os.environ.get('STAGING_SERVER')
         # if staging_server:
         #     self.live_server_url = "http://" + staging_server
