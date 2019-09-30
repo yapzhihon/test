@@ -34,7 +34,7 @@ jobs:
           skip_cleanup: true
           on:
             branch: staging
-branches:
-  only:
-    - master
-    - staging
+#branches:
+#  only:
+#    - master
+#    - staging
