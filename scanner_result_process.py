@@ -1,5 +1,6 @@
 import requests
 import json
+import sys
 
 from django.conf import settings
 
@@ -26,13 +27,13 @@ def main():
         status = project_status.get('status', '')
 
         if status == SUCCESS:
-            return
+            sys.exit(0)
         elif status == WARNING or status == ERROR or status == NONE:
-            return 1
+            sys.exit(1)
         else:
-            return 1
+            sys.exit(1)
     else:
-        return 1
+        sys.exit(1)
 
 
 if __name__ == '__main__':
