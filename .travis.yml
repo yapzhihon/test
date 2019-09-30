@@ -30,8 +30,8 @@ jobs:
     script: echo "Deploying to GitHub releases ..."
     deploy:
       provider: releases
-#      api_key:
-#        secure: nCtoxeKQvvkbDctAXxLMTegXfPvIlnAQ20RQl1WdjAT9RRfyEWvHrc7SfDiu17S9CWYao2ugfVvEdO9HvVW5ho7c1hw7Qra3BJEU/bakQ+njGPVyny5vVTLdXywmKE3Qq+4dd2+isZAu1M8EKbEw2o1jtcX/1U/Suc2bDdC4pwLw1/KjoswKCUbOqD55fPaZ/WRTvAaR4Cc0hf/Rjo2Wnn6Ll9reta6SpytuJzYhLSZduo//FvGGiOwV9Tjay2oddqTRYf6Ya/mtOkr4k69JAyPDZFaaXR+Yva4MnR73XJrIx20p3Gaol7EPJF41IfheXTsm/L6931kt0YfV/J6IhOtjrln/vKA3mewrGaJ/YWy7N94qJYwrdSYFV7lF9Wzu1mwUxx5bvuJa6DyVOK+bMtfRE+YzstTPye5F91wlKsW0UBAwSCBuM4VcUOMBcmlxz+Ja7DRup4mriOBRWBg2oUYdTWYZhXxm+yPYbdfVwplcGVw8vnejUDGFtGLoYCqMZdfTORmtESP/JTyN/A2pWXs5OjfMDrDa1jCzVOlSFUTK1tEeDK9Qs0aLFRSAiRBFKU13SvwnHZjozuO1jVCF+7KPDUKcVbNn5TESpGVrMnj3rwNIQha62ce8Rf9UcJNOaow+uHfKpCHjmj4A0H7Iqng+cqGgoZzxjXqyxSW5LxQ=
+      api_key:
+        secure: nCtoxeKQvvkbDctAXxLMTegXfPvIlnAQ20RQl1WdjAT9RRfyEWvHrc7SfDiu17S9CWYao2ugfVvEdO9HvVW5ho7c1hw7Qra3BJEU/bakQ+njGPVyny5vVTLdXywmKE3Qq+4dd2+isZAu1M8EKbEw2o1jtcX/1U/Suc2bDdC4pwLw1/KjoswKCUbOqD55fPaZ/WRTvAaR4Cc0hf/Rjo2Wnn6Ll9reta6SpytuJzYhLSZduo//FvGGiOwV9Tjay2oddqTRYf6Ya/mtOkr4k69JAyPDZFaaXR+Yva4MnR73XJrIx20p3Gaol7EPJF41IfheXTsm/L6931kt0YfV/J6IhOtjrln/vKA3mewrGaJ/YWy7N94qJYwrdSYFV7lF9Wzu1mwUxx5bvuJa6DyVOK+bMtfRE+YzstTPye5F91wlKsW0UBAwSCBuM4VcUOMBcmlxz+Ja7DRup4mriOBRWBg2oUYdTWYZhXxm+yPYbdfVwplcGVw8vnejUDGFtGLoYCqMZdfTORmtESP/JTyN/A2pWXs5OjfMDrDa1jCzVOlSFUTK1tEeDK9Qs0aLFRSAiRBFKU13SvwnHZjozuO1jVCF+7KPDUKcVbNn5TESpGVrMnj3rwNIQha62ce8Rf9UcJNOaow+uHfKpCHjmj4A0H7Iqng+cqGgoZzxjXqyxSW5LxQ=
       skip_cleanup: true
       on:
         branch: staging
