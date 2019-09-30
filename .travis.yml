@@ -3,6 +3,7 @@ install:
   - pip install -r requirements.txt
 script:
   - python manage.py test
+  - sonar-scanner
 addons:
   firefox: latest
 before_install:
@@ -12,5 +13,9 @@ before_install:
   - export PATH=$PATH:$PWD/geckodriver
   - geckodriver --version
   - export MOZ_HEADLESS=1
+  - mkdir /opt/sonarscanner && cd /opt/sonarscanner/
+  - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.1.0.1829-linux.zip
+  - unzip sonar-scanner-cli-4.1.0.1829-linux.zip
+  - echo "sonar.host.url=https://sonarcloud.io\nsonar.login=25773094b60606c7922593ac6869f78dbceb6ddf\nsonar.projectKey=iiiiio_unittest_env\nsonar.organization=iiiiio\nsonar.sourceEncoding=UTF-8\nsonar.sources=./\nsonar.exclusions=/lists/static/bootstrap/**, /lists/static/*jquery*.*.js, /lists/static/**/*qunit*.*, **/migrations/**" > sonar-scanner-4.1.0.1829-linux/conf/sonar-scanner.properties
 env:
  - MOZ_HEADLESS=1
