@@ -1,40 +1,40 @@
 dist: trusty
 language: python
 install:
-  - pip install -r requirements.txt
-#script:
-#  - python manage.py test
-#  - sonar-scanner
+- pip install -r requirements.txt
 addons:
   firefox: latest
   sonarcloud:
-    organization: "iiiiio"
+    organization: iiiiio
     token:
-      secure: "pawso2YR4yr6ZibQoP5XViRj3wJ3G3+1+yybCiunlEwMJvbzIxSR5gtm1rHwj0ETfb45YbAwZChxYzy6JPFQvZlGfBdAMSakpciNe+UiW23qA/faJk92tF6rSU8npxDiPRglLVfPShSOuMSrYHR93N22kupDNbAAG8ycKECJSCAWfgy06w3FCaU4+1IAB0VKnldbp+wktXKnCN2XsloEgPFma923JHxDSv+tMCNvf+xd/d2n+xO5AT/mIx5VhLRORIOwYwjLzkQDRyOjUMKfJeda7LPbt4Gr4r0zHfh8x19JMozZTBI3Vu8BbcjkFSjywVnUgldHYd7LrU7I8UwwJwdZAf0nn3hldgM48FX80yBgjdAmVG0DvFqfp5jPDnJRaO9OtqIYhrflAjzXoI69x4BD2PkgIyqo8Y7/F+JS7LFmlGpwikMV4a4oCcZPOkMF29Apcd3fHC1af25yXKwxappXIcpvIegQ7WJMZyIOttQIuHP4oTTuWsBE6oEqjk0Q7B+k8pgBrQjwX2+X0kZ9C0ITaYa7ygLBizHYGL5ObVHr2E7NFPd/reXfKNs1N8fF9zEyVzhjLQVam2puZovy9bi/x9wR5yKbLi3lFxPZsMu3jbo6gqW0AsWnD429GNjwy549xKLWlypM9NO6Hwp6Mh877q3cEo17MeojHXbJhks="
+      secure: pawso2YR4yr6ZibQoP5XViRj3wJ3G3+1+yybCiunlEwMJvbzIxSR5gtm1rHwj0ETfb45YbAwZChxYzy6JPFQvZlGfBdAMSakpciNe+UiW23qA/faJk92tF6rSU8npxDiPRglLVfPShSOuMSrYHR93N22kupDNbAAG8ycKECJSCAWfgy06w3FCaU4+1IAB0VKnldbp+wktXKnCN2XsloEgPFma923JHxDSv+tMCNvf+xd/d2n+xO5AT/mIx5VhLRORIOwYwjLzkQDRyOjUMKfJeda7LPbt4Gr4r0zHfh8x19JMozZTBI3Vu8BbcjkFSjywVnUgldHYd7LrU7I8UwwJwdZAf0nn3hldgM48FX80yBgjdAmVG0DvFqfp5jPDnJRaO9OtqIYhrflAjzXoI69x4BD2PkgIyqo8Y7/F+JS7LFmlGpwikMV4a4oCcZPOkMF29Apcd3fHC1af25yXKwxappXIcpvIegQ7WJMZyIOttQIuHP4oTTuWsBE6oEqjk0Q7B+k8pgBrQjwX2+X0kZ9C0ITaYa7ygLBizHYGL5ObVHr2E7NFPd/reXfKNs1N8fF9zEyVzhjLQVam2puZovy9bi/x9wR5yKbLi3lFxPZsMu3jbo6gqW0AsWnD429GNjwy549xKLWlypM9NO6Hwp6Mh877q3cEo17MeojHXbJhks=
 before_install:
-  - wget https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-linux64.tar.gz
-  - mkdir geckodriver
-  - tar -xzf geckodriver-v0.25.0-linux64.tar.gz -C geckodriver
-  - export PATH=$PATH:$PWD/geckodriver
-  - geckodriver --version
-  - export MOZ_HEADLESS=1
+- wget https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-linux64.tar.gz
+- mkdir geckodriver
+- tar -xzf geckodriver-v0.25.0-linux64.tar.gz -C geckodriver
+- export PATH=$PATH:$PWD/geckodriver
+- geckodriver --version
+- export MOZ_HEADLESS=1
 env:
-  - MOZ_HEADLESS=1
+- MOZ_HEADLESS=1
 jobs:
   include:
-    - stage: test
-      script: python manage.py test
-    - stage: sonar-scanning
-      script: sonar-scanner
-    - stage: GitHub Release
-      script: echo "Deploying to GitHub releases ..."
-      deploy:
-        provider: releases
-        api_key: $GITHUB_OAUTH_TOKEN
-        skip_cleanup: true
-        on:
-          branch: staging
+  - stage: test
+    script: python manage.py test
+  - stage: sonar-scanning
+    script: sonar-scanner
+  - stage: GitHub Release
+    script: echo "Deploying to GitHub releases ..."
+    deploy:
+      provider: releases
+      api_key: "$GITHUB_OAUTH_TOKEN"
+      skip_cleanup: true
+      on:
+        branch: staging
 branches:
   only:
-    - master
-    - staging
+  - master
+  - staging
+deploy:
+  api_key:
+    secure: vhTskLgB7YzGUY5/DMrCawV3DUW6NJeWpPQgS23bWR42NBeT5kccultnWJvuiKFB/J+5yyG+fmq4P36PuvJEK2uxSvo/Z5eRpDmqelOT5ySvi+/LKDpBok435sUBS59OuRitz40qb4Wv8/pD9zjZfYysNeF/0PLHDQWELdp+e4Z7ImHixHOTBDAj00+vi8dbK6+uHQeMFvYYw6vLa92M7mrrGWTsVSjJtlkuxIJVjnLI2MMSHZhKQCjeYeCRIttPw/bhePOYf2WTP1UFpGm68MchqoZuzIHUJq3SAtWIBlw8Vp5FhHeXp5dgVsx3yjBnlK3TnAODJ4KFF+9SFZ+3ylsf0d6x9A98owFPJHHHUo/rqu44b8VgAQ5nv8iBx/8Dr1/+bymXhN3F0FcEb/BRsSfVU/pSbzkTmYZ2RzNE1rjSQ6ReaAhZMlKE5l+7O6otU99YxIApngLcdIJk8xRR7V18iKcVmnabeVxj4L9+ArjQ9fopJkOpt22r2KPdu/LYntcpmyP7r3JX1h/3qfzEURgviqw9fA6aLy/OrEoKSVOthgs7gsdy3l9Xt+uu3IdET9rAtxeY+qzlg8ghAPPJRgd/3fANUjj6LjwUzFDjL4j/sivmRcAOCddeuGGyaWoEunP/YCPQfVsNKyaC5gSKE/BleRQ8LAVbe58VYBU8hhg=
