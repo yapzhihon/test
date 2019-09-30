@@ -30,9 +30,9 @@ jobs:
     script: echo "Deploying to GitHub releases ..."
     deploy:
       provider: releases
+      skip_cleanup: true
       api_key:
         secure: pnpPw8svlRX033jbcfVAEfbzKQ51iwLsbPtuMgBOaI7fPHNinIhriA7BSpppPrb8fPAqE2QdcH4XuhtmeyCfrYqzMMa8hGkWr9XQDmwbIOptuRyFXpFQ5xYzQt6kTEQZlT7AhFbvl9nRNUNI00YiUNKDZbwQ16Nuig7uJafPfBYwWBJl9Fn9bgc1j9zALc9BUNYUS7tS6ft1wFB4gUEdZtNh3z2O51ip9rC53fDti4L
-        skip_cleanup: true
       on:
         branch: staging
 branches:
