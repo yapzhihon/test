@@ -20,11 +20,11 @@ env:
   - MOZ_HEADLESS=1
 jobs:
   include:
-  - stage: test
+  - stage: Test
     script: python manage.py test
-  - stage: sonar-scanning
+  - stage: Sonar-scanning
     script: sonar-scanner
-  - stage:
+  - stage: Quality Gate
       script: python scanner_result_process
   - stage: GitHub Release
     script: echo "Deploying to GitHub releases ..."
