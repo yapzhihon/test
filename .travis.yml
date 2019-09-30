@@ -27,7 +27,7 @@ jobs:
     script: echo "Deploying to GitHub releases ..."
     deploy:
       provider: releases
-      api_key: "$GITHUB_OAUTH_TOKEN"
+      api_key: vhTskLgB7YzGUY5/DMrCawV3DUW6NJeWpPQgS23bWR42NBeT5kccultnWJvuiKFB/J+5yyG+fmq4P36PuvJEK2uxSvo/Z5eRpDmqelOT5ySvi+/LKDpBok435sUBS59OuRitz40qb4Wv8/pD9zjZfYysNeF/0PLHDQWELdp+e4Z7ImHixHOTBDAj00+vi8dbK6+uHQeMFvYYw6vLa92M7mrrGWTsVSjJtlkuxIJVjnLI2MMSHZhKQCjeYeCRIttPw/bhePOYf2WTP1UFpGm68MchqoZuzIHUJq3SAtWIBlw8Vp5FhHeXp5dgVsx3yjBnlK3TnAODJ4KFF+9SFZ+3ylsf0d6x9A98owFPJHHHUo/rqu44b8VgAQ5nv8iBx/8Dr1/+bymXhN3F0FcEb/BRsSfVU/pSbzkTmYZ2RzNE1rjSQ6ReaAhZMlKE5l+7O6otU99YxIApngLcdIJk8xRR7V18iKcVmnabeVxj4L9+ArjQ9fopJkOpt22r2KPdu/LYntcpmyP7r3JX1h/3qfzEURgviqw9fA6aLy/OrEoKSVOthgs7gsdy3l9Xt+uu3IdET9rAtxeY+qzlg8ghAPPJRgd/3fANUjj6LjwUzFDjL4j/sivmRcAOCddeuGGyaWoEunP/YCPQfVsNKyaC5gSKE/BleRQ8LAVbe58VYBU8hhg=
       skip_cleanup: true
       on:
         branch: staging
@@ -35,6 +35,6 @@ branches:
   only:
   - master
   - staging
-deploy:
-  api_key:
-    secure: vhTskLgB7YzGUY5/DMrCawV3DUW6NJeWpPQgS23bWR42NBeT5kccultnWJvuiKFB/J+5yyG+fmq4P36PuvJEK2uxSvo/Z5eRpDmqelOT5ySvi+/LKDpBok435sUBS59OuRitz40qb4Wv8/pD9zjZfYysNeF/0PLHDQWELdp+e4Z7ImHixHOTBDAj00+vi8dbK6+uHQeMFvYYw6vLa92M7mrrGWTsVSjJtlkuxIJVjnLI2MMSHZhKQCjeYeCRIttPw/bhePOYf2WTP1UFpGm68MchqoZuzIHUJq3SAtWIBlw8Vp5FhHeXp5dgVsx3yjBnlK3TnAODJ4KFF+9SFZ+3ylsf0d6x9A98owFPJHHHUo/rqu44b8VgAQ5nv8iBx/8Dr1/+bymXhN3F0FcEb/BRsSfVU/pSbzkTmYZ2RzNE1rjSQ6ReaAhZMlKE5l+7O6otU99YxIApngLcdIJk8xRR7V18iKcVmnabeVxj4L9+ArjQ9fopJkOpt22r2KPdu/LYntcpmyP7r3JX1h/3qfzEURgviqw9fA6aLy/OrEoKSVOthgs7gsdy3l9Xt+uu3IdET9rAtxeY+qzlg8ghAPPJRgd/3fANUjj6LjwUzFDjL4j/sivmRcAOCddeuGGyaWoEunP/YCPQfVsNKyaC5gSKE/BleRQ8LAVbe58VYBU8hhg=
+#deploy:
+#  api_key:
+#    secure: vhTskLgB7YzGUY5/DMrCawV3DUW6NJeWpPQgS23bWR42NBeT5kccultnWJvuiKFB/J+5yyG+fmq4P36PuvJEK2uxSvo/Z5eRpDmqelOT5ySvi+/LKDpBok435sUBS59OuRitz40qb4Wv8/pD9zjZfYysNeF/0PLHDQWELdp+e4Z7ImHixHOTBDAj00+vi8dbK6+uHQeMFvYYw6vLa92M7mrrGWTsVSjJtlkuxIJVjnLI2MMSHZhKQCjeYeCRIttPw/bhePOYf2WTP1UFpGm68MchqoZuzIHUJq3SAtWIBlw8Vp5FhHeXp5dgVsx3yjBnlK3TnAODJ4KFF+9SFZ+3ylsf0d6x9A98owFPJHHHUo/rqu44b8VgAQ5nv8iBx/8Dr1/+bymXhN3F0FcEb/BRsSfVU/pSbzkTmYZ2RzNE1rjSQ6ReaAhZMlKE5l+7O6otU99YxIApngLcdIJk8xRR7V18iKcVmnabeVxj4L9+ArjQ9fopJkOpt22r2KPdu/LYntcpmyP7r3JX1h/3qfzEURgviqw9fA6aLy/OrEoKSVOthgs7gsdy3l9Xt+uu3IdET9rAtxeY+qzlg8ghAPPJRgd/3fANUjj6LjwUzFDjL4j/sivmRcAOCddeuGGyaWoEunP/YCPQfVsNKyaC5gSKE/BleRQ8LAVbe58VYBU8hhg=
