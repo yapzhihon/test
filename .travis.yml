@@ -2,9 +2,9 @@ dist: trusty
 language: python
 install:
   - pip install -r requirements.txt
-script:
-  - python manage.py test
-  - sonar-scanner
+#script:
+#  - python manage.py test
+#  - sonar-scanner
 addons:
   firefox: latest
   sonarcloud:
@@ -20,21 +20,21 @@ before_install:
   - export MOZ_HEADLESS=1
 env:
   - MOZ_HEADLESS=1
-#jobs:
-#  include:
-#    - stage: test
-#      script: python manage.py test
-#    - stage: sonar-scanning
-#      script: sonar-scanner
-#    - stage: GitHub Release
-#        script: echo "Deploying to GitHub releases ..."
-#        deploy:
-#          provider: releases
-#          api_key: $GITHUB_OAUTH_TOKEN
-#          skip_cleanup: true
-#          on:
-#            branch: staging
-#branches:
-#  only:
-#    - master
-#    - staging
+jobs:
+  include:
+    - stage: test
+      script: python manage.py test
+    - stage: sonar-scanning
+      script: sonar-scanner
+    - stage: GitHub Release
+        script: echo "Deploying to GitHub releases ..."
+        deploy:
+          provider: releases
+          api_key: $GITHUB_OAUTH_TOKEN
+          skip_cleanup: true
+          on:
+            branch: staging
+branches:
+  only:
+    - master
+    - staging
