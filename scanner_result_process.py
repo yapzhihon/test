@@ -3,6 +3,10 @@ import json
 
 from django.conf import settings
 
+from superlists import settings
+
+DJANGO_SETTINGS_MODULE = settings
+
 
 def main():
     SUCCESS = 'OK'
