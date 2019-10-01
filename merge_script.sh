@@ -10,6 +10,8 @@ echo "$TRAVIS_BRANCH"
 
 export GIT_COMMITTER_EMAIL=''
 export GIT_COMMITTER_NAME=''
+echo "$TRAVIS_REPO_SLUG"
+export GIT_TOKEN='57ab2e92d63d5f0a81483825d95ebac17d43b5c1'
 
 echo "here 2"
 
