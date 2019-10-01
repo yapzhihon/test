@@ -15,6 +15,7 @@ before_install:
 - export PATH=$PATH:$PWD/geckodriver
 - geckodriver --version
 - export MOZ_HEADLESS=1
+- chmod +x merge_script.sh
 env:
   matrix:
   - MOZ_HEADLESS=1
