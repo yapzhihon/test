@@ -24,18 +24,19 @@ jobs:
     script: python manage.py test
   - stage: Sonar-scanning
     script: sonar-scanner
-  - stage: Quality Gate
-    script: python scanner_result_process.py
-  - stage: GitHub Release
-    script: echo "Deploying to GitHub releases ..."
-    deploy:
-      provider: releases
-      skip_cleanup: true
-      api_key:
-        secure: ZEHKCmlvsLa215M4Bnnu+0UpZYzBIURVWRgviFmw7Q99HQnYYVcr5tJpAkBvrqY5kklXn63+0MvloeH1qzJsIyBJJszqDsIj/G5O/V8kSa/kEiELn4QPFl4xNnfpR9LO4a1GpzzGmoEFejKip3TxlxtJ92Xfm6FqSzka2S8XH/eCbp4/kUk7JNFtCHrxGnRwB9RHyfhVS+iUGKDvFdsdPn1V+bX4qwlobLDLihiaWHzNvfycDHSfjdzHD8qQnA6AkzS8H+MgrtchKFRAtHw46a0SJd3qNGzp/bMTzkhd43x1YhLBpGw0HKA5KaaAvOeWdoIVFdfMPHKZX5n/izfzsPYRxDhbr447mx6MYJRXVR3p4bTrYkwqnijZ6r4NT/7kg3UaqhJH7IkiOavzr4pNXw3w5S20MO2uJCup8msKEAqXn9LZkqIh9F0gT1zLwqwzN7JFwPXiQMp2w2VyYNUJnSB8JUpJUqG9A3gPAK5LkKekedKZy+ftAzGr3UtE5Uk0dXtPDMk/xpOAHSdkMg2IbtpItFVKvGjLWPwlaAIIMKShiLskwqLV78B7HUis8e/6FosDkbZ5eiLmcZ+jtVQiFyvCtUIq/Wo+BbePTMH5kOdy1qF1l9vLMHVP9ka6j4YzBhVPtuZzVsOpHdDPOvnfumOsHkTHbRtGO/PxvDZdT8Q=
-      on:
-        branch: staging
+#  - stage: Quality Gate
+#    script: python scanner_result_process.py
+#  - stage: GitHub Release
+#    script: echo "Deploying to GitHub releases ..."
+#    deploy:
+#      provider: releases
+#      skip_cleanup: true
+#      api_key:
+#        secure: ZEHKCmlvsLa215M4Bnnu+0UpZYzBIURVWRgviFmw7Q99HQnYYVcr5tJpAkBvrqY5kklXn63+0MvloeH1qzJsIyBJJszqDsIj/G5O/V8kSa/kEiELn4QPFl4xNnfpR9LO4a1GpzzGmoEFejKip3TxlxtJ92Xfm6FqSzka2S8XH/eCbp4/kUk7JNFtCHrxGnRwB9RHyfhVS+iUGKDvFdsdPn1V+bX4qwlobLDLihiaWHzNvfycDHSfjdzHD8qQnA6AkzS8H+MgrtchKFRAtHw46a0SJd3qNGzp/bMTzkhd43x1YhLBpGw0HKA5KaaAvOeWdoIVFdfMPHKZX5n/izfzsPYRxDhbr447mx6MYJRXVR3p4bTrYkwqnijZ6r4NT/7kg3UaqhJH7IkiOavzr4pNXw3w5S20MO2uJCup8msKEAqXn9LZkqIh9F0gT1zLwqwzN7JFwPXiQMp2w2VyYNUJnSB8JUpJUqG9A3gPAK5LkKekedKZy+ftAzGr3UtE5Uk0dXtPDMk/xpOAHSdkMg2IbtpItFVKvGjLWPwlaAIIMKShiLskwqLV78B7HUis8e/6FosDkbZ5eiLmcZ+jtVQiFyvCtUIq/Wo+BbePTMH5kOdy1qF1l9vLMHVP9ka6j4YzBhVPtuZzVsOpHdDPOvnfumOsHkTHbRtGO/PxvDZdT8Q=
+#      on:
+#        branch: staging
 branches:
   only:
   - master
   - staging
+after_success: ./merge_script.sh
