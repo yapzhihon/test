@@ -13,6 +13,7 @@ export GIT_COMMITTER_NAME=''
 
 echo "here 2"
 
+git pull
 git checkout master || exit
 echo "here 3"
 git merge "$TRAVIS_COMMIT" || exit
