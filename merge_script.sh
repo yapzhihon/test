@@ -15,9 +15,10 @@ export GIT_TOKEN='57ab2e92d63d5f0a81483825d95ebac17d43b5c1'
 
 echo "here 2"
 
-git pull --all
+git branch -d master || true
+git fetch --all
 git branch -a
-git checkout master || exit
+git checkout -b master origin/master || exit
 echo "here 3"
 git merge "$TRAVIS_COMMIT" || exit
 echo "4"
