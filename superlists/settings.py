@@ -149,3 +149,8 @@ EMAIL_HOST_USER = 'forctrl996@gmail.com'
 EMAIL_HOST_PASSWORD = 'cormovan7766' # os.environ.get('EMAIL_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+SONAR_URL = 'https://sonarcloud.io'
+SONAR_LOGIN = '25773094b60606c7922593ac6869f78dbceb6ddf'
+SONAR_PROJECTKEY = 'iiiiio_unittest_env'
+SONAR_ORGANIZATION = 'iiiiio'
