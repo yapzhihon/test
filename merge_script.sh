@@ -22,5 +22,6 @@ git checkout master || exit
 #echo "here 3"
 git merge "$TRAVIS_COMMIT" || exit
 #echo "4"
-git push --set-upstream origin master
+git push https://$GIT_USERNAME:$GIT_PWD@github.com/$TRAVIS_REPO_SLUG.git
+#git push --set-upstream origin master
 #echo "done"
