@@ -14,13 +14,13 @@
 #echo "here 2"
 
 git branch -d master || true
-#git checkout --detach
-#git fetch origin '+refs/heads/*:refs/heads/origin/*'
+git checkout --detach
+git fetch origin '+refs/heads/*:refs/heads/*'
 git fetch --all
 git branch -a
-#git checkout --track origin/master || exit
+git checkout master || exit
 #echo "here 3"
-#git merge "$TRAVIS_COMMIT" || exit
+git merge "$TRAVIS_COMMIT" || exit
 #echo "4"
-#git push
+git push --set-upstream origin master
 #echo "done"
