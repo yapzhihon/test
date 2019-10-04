@@ -1,5 +1,3 @@
-echo "sd"
-
 echo "$TRAVIS_BRANCH"
 #if [ "$TRAVIS_BRANCH" != "test" ]; then
 #    exit 0;
