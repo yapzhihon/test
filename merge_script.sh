@@ -16,7 +16,7 @@ echo "here 2"
 git branch -d master || true
 git checkout --detach
 git fetch origin '+refs/heads/*:refs/heads/origin/*'
-git checkout -b master origin/master || exit
+git checkout -b master --track origin/master || exit
 echo "here 3"
 git merge "$TRAVIS_COMMIT" || exit
 echo "4"
