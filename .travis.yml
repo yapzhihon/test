@@ -27,8 +27,8 @@ before_install:
 jobs:
   include:
   - stage: Test
-    script: echo "go"
-#    script: python manage.py test
+#    script: echo "go"
+    script: python manage.py test
 #  - stage: Sonar-scanning
 #    script: sonar-scanner
 #  - stage: Quality Gate
