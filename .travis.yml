@@ -5,7 +5,7 @@ python:
 services:
   - mysql
 install:
-  - pip install mysql-python
+  - pip install mysqlclient
   - pip install -r requirements.txt
 #addons:
 #  firefox: latest
@@ -22,6 +22,7 @@ before_install:
 #  - export MOZ_HEADLESS=1
 #  - chmod +x merge_script.sh
 #  - sudo apt-get install libgeoip-dev -y
+  - sudo apt-get install python3-dev libmysqlclient-dev
   - mysql -e 'CREATE DATABASE cloud_database;'
 #env:
 #  matrix:
