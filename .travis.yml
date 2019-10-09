@@ -1,4 +1,4 @@
-dist: bionic
+dist: xenial
 language: python
 install:
 - pip install -r requirements.txt
@@ -16,6 +16,7 @@ before_install:
 - geckodriver --version
 - export MOZ_HEADLESS=1
 - chmod +x merge_script.sh
+- apt-get install libgeoip-dev -y
 env:
   matrix:
   - MOZ_HEADLESS=1
