@@ -1,7 +1,9 @@
 dist: xenial
 language: python
+python:
+  - "2.7"
 install:
-- pip install -r requirements.txt
+- pip install -r requirements_sonar_test.txt
 addons:
   firefox: latest
   sonarcloud:
@@ -16,7 +18,7 @@ before_install:
 - geckodriver --version
 - export MOZ_HEADLESS=1
 - chmod +x merge_script.sh
-- apt-get install libgeoip-dev -y
+- sudo apt-get install libgeoip-dev -y
 env:
   matrix:
   - MOZ_HEADLESS=1
