@@ -28,10 +28,13 @@ before_install:
 #  matrix:
 #  - MOZ_HEADLESS=1
 jobs:
+  allow_failures:
+    - script: python manage.py test lists
   include:
   - stage: Test
 #    script: exit 1 || true
-    script: python manage.py test lists || true
+    script: python manage.py test lists
+#    script: python manage.py test lists || true
 #  - stage: Sonar-scanning
 #    script: sonar-scanner
 #  - stage: Quality Gate
