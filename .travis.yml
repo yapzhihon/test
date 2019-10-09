@@ -2,8 +2,10 @@ dist: xenial
 language: python
 python:
   - "2.7"
+services:
+  - mysql
 install:
-- pip install -r requirements_sonar_test.txt
+  - pip install -r requirements_sonar_test.txt
 addons:
   firefox: latest
   sonarcloud:
@@ -11,14 +13,14 @@ addons:
     token:
       secure: pawso2YR4yr6ZibQoP5XViRj3wJ3G3+1+yybCiunlEwMJvbzIxSR5gtm1rHwj0ETfb45YbAwZChxYzy6JPFQvZlGfBdAMSakpciNe+UiW23qA/faJk92tF6rSU8npxDiPRglLVfPShSOuMSrYHR93N22kupDNbAAG8ycKECJSCAWfgy06w3FCaU4+1IAB0VKnldbp+wktXKnCN2XsloEgPFma923JHxDSv+tMCNvf+xd/d2n+xO5AT/mIx5VhLRORIOwYwjLzkQDRyOjUMKfJeda7LPbt4Gr4r0zHfh8x19JMozZTBI3Vu8BbcjkFSjywVnUgldHYd7LrU7I8UwwJwdZAf0nn3hldgM48FX80yBgjdAmVG0DvFqfp5jPDnJRaO9OtqIYhrflAjzXoI69x4BD2PkgIyqo8Y7/F+JS7LFmlGpwikMV4a4oCcZPOkMF29Apcd3fHC1af25yXKwxappXIcpvIegQ7WJMZyIOttQIuHP4oTTuWsBE6oEqjk0Q7B+k8pgBrQjwX2+X0kZ9C0ITaYa7ygLBizHYGL5ObVHr2E7NFPd/reXfKNs1N8fF9zEyVzhjLQVam2puZovy9bi/x9wR5yKbLi3lFxPZsMu3jbo6gqW0AsWnD429GNjwy549xKLWlypM9NO6Hwp6Mh877q3cEo17MeojHXbJhks=
 before_install:
-- wget https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-linux64.tar.gz
-- mkdir geckodriver
-- tar -xzf geckodriver-v0.25.0-linux64.tar.gz -C geckodriver
-- export PATH=$PATH:$PWD/geckodriver
-- geckodriver --version
-- export MOZ_HEADLESS=1
-- chmod +x merge_script.sh
-- sudo apt-get install libgeoip-dev -y
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-linux64.tar.gz
+  - mkdir geckodriver
+  - tar -xzf geckodriver-v0.25.0-linux64.tar.gz -C geckodriver
+  - export PATH=$PATH:$PWD/geckodriver
+  - geckodriver --version
+  - export MOZ_HEADLESS=1
+  - chmod +x merge_script.sh
+  - sudo apt-get install libgeoip-dev -y
 env:
   matrix:
   - MOZ_HEADLESS=1
