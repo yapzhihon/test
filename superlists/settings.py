@@ -88,10 +88,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'STORAGE_ENGINE': 'INNODB',
-        'NAME': '',
-        'USER': '',
+        'NAME': 'cloud_database',
+        'USER': 'root',
         'PASSWORD': '',
-        'HOST': '',
+        'HOST': '127.0.0.1',
         'PORT': '',
     },
 }
