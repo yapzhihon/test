@@ -35,10 +35,10 @@ jobs:
 #    script: exit 1 || true
     script: python manage.py test lists
 #    script: python manage.py test lists || true
-#  - stage: Sonar-scanning
-#    script: sonar-scanner
-#  - stage: Quality Gate
-#    script: python scanner_result_process.py
+  - stage: Sonar-scanning
+    script: sonar-scanner
+  - stage: Quality Gate
+    script: python scanner_result_process.py
 #  - stage: GitHub Release
 #    script: echo "Deploying to GitHub releases ..."
 #    deploy:
