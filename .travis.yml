@@ -37,6 +37,7 @@ jobs:
 #      - python manage.py test lists
       - echo 'go'
       - echo 'go1'
+      - pwd
 #    script: python manage.py test lists || true
 #  - stage: Sonar-scanning
 #    script: sonar-scanner
