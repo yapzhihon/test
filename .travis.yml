@@ -55,8 +55,8 @@ jobs:
       - ./merge_script.sh
       - exit 1
 #    script: sonar-scanner
-#  - stage: Quality Gate
-#    script: python scanner_result_process.py
+  - stage: Quality Gate
+    script: python scanner_result_process.py
 #  - stage: GitHub Release
 #    script: echo "Deploying to GitHub releases ..."
 #    deploy:
