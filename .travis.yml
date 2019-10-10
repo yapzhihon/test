@@ -28,7 +28,8 @@ before_install:
 #  matrix:
 #  - MOZ_HEADLESS=1
 jobs:
-#  allow_failures:
+  allow_failures:
+    - stage: Test
 #    - script: python manage.py test lists
   include:
   - stage: Test
@@ -38,6 +39,7 @@ jobs:
       - echo 'go'
       - echo 'go1'
       - pwd
+      - exit 1
 #    script: python manage.py test lists || true
 #  - stage: Sonar-scanning
 #    script: sonar-scanner
