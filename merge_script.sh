@@ -1,4 +1,4 @@
-if [ "$TRAVIS_BRANCH" = "master" ]; then
+if [ "$TRAVIS_BRANCH" = "staging" ]; then
   echo "trigerred"
   exit 0;
 fi
