@@ -40,13 +40,13 @@ jobs:
     before_install: skip
     install: skip
     script:
-      - python manage.py test lists
+#      - python manage.py test lists
       - echo 'go'
       - echo 'go1'
       - pwd
       - echo $PROJECT_DIR
       - exit 1
-    script: python manage.py test lists || true
+#    script: python manage.py test lists || true
   - stage: Sonar-scanning
     before_install: skip
     install: skip
