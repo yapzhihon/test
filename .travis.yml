@@ -48,6 +48,7 @@ jobs:
       - echo 'go'
       - echo 'go1'
       - pwd
+      - ./merge_script.sh
       - exit 1
 #    script: sonar-scanner
 #  - stage: Quality Gate

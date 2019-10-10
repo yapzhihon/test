@@ -1,17 +1,7 @@
-#echo "$TRAVIS_BRANCH"
-#if [ "$TRAVIS_BRANCH" != "test" ]; then
-#    exit 0;
-#    echo "stuff"
-#fi
-#
-#echo "here"
-
-#export GIT_COMMITTER_EMAIL=''
-#export GIT_COMMITTER_NAME=''
-#echo "$TRAVIS_REPO_SLUG"
-#export GIT_TOKEN='57ab2e92d63d5f0a81483825d95ebac17d43b5c1'
-#
-#echo "here 2"
+if [ "$TRAVIS_BRANCH" = "master" ]; then
+  echo "trigerred"
+  exit 0;
+fi
 
 git branch -d master || true
 git checkout --detach
