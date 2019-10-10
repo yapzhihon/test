@@ -4,9 +4,9 @@ import sys
 
 from django.conf import settings
 
-from superlists import settings
-
-DJANGO_SETTINGS_MODULE = settings
+# from superlists import settings
+#
+# DJANGO_SETTINGS_MODULE = settings
 
 
 def main():
