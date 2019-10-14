@@ -85,8 +85,8 @@ jobs:
 #    - echo "skip"
 ##    - python lists/scanner_result_process.py
   - stage: Deploy
-    before_install: skip
-    install: skip
+#    before_install: skip
+#    install: skip
     script:
     - ./merge_script.sh
 #  - stage: GitHub Release
