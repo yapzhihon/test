@@ -1,29 +1,36 @@
 dist: xenial
+
 language: python
+
 python:
-  - "3.7"
+- "3.7"
+
 services:
-  - mysql
+- mysql
+
 install:
-  - pip install mysqlclient
-  - pip install -r requirements.txt
-addons:
+- pip install mysqlclient
+- pip install -r requirements.txt
+
+#addons:
 #  firefox: latest
 #  sonarcloud:
 #    organization: iiiiio
 #    token:
 #      secure: pawso2YR4yr6ZibQoP5XViRj3wJ3G3+1+yybCiunlEwMJvbzIxSR5gtm1rHwj0ETfb45YbAwZChxYzy6JPFQvZlGfBdAMSakpciNe+UiW23qA/faJk92tF6rSU8npxDiPRglLVfPShSOuMSrYHR93N22kupDNbAAG8ycKECJSCAWfgy06w3FCaU4+1IAB0VKnldbp+wktXKnCN2XsloEgPFma923JHxDSv+tMCNvf+xd/d2n+xO5AT/mIx5VhLRORIOwYwjLzkQDRyOjUMKfJeda7LPbt4Gr4r0zHfh8x19JMozZTBI3Vu8BbcjkFSjywVnUgldHYd7LrU7I8UwwJwdZAf0nn3hldgM48FX80yBgjdAmVG0DvFqfp5jPDnJRaO9OtqIYhrflAjzXoI69x4BD2PkgIyqo8Y7/F+JS7LFmlGpwikMV4a4oCcZPOkMF29Apcd3fHC1af25yXKwxappXIcpvIegQ7WJMZyIOttQIuHP4oTTuWsBE6oEqjk0Q7B+k8pgBrQjwX2+X0kZ9C0ITaYa7ygLBizHYGL5ObVHr2E7NFPd/reXfKNs1N8fF9zEyVzhjLQVam2puZovy9bi/x9wR5yKbLi3lFxPZsMu3jbo6gqW0AsWnD429GNjwy549xKLWlypM9NO6Hwp6Mh877q3cEo17MeojHXbJhks=
+
 before_install:
-  - wget https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-linux64.tar.gz
-  - mkdir geckodriver
-  - tar -xzf geckodriver-v0.25.0-linux64.tar.gz -C geckodriver
-  - export PATH=$PATH:$PWD/geckodriver
-  - geckodriver --version
-  - export MOZ_HEADLESS=1
-  - chmod +x merge_script.sh
-  - sudo apt-get install libgeoip-dev -y
-  - sudo apt-get install python3-dev libmysqlclient-dev
-  - mysql -e 'CREATE DATABASE cloud_database;'
+- wget https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-linux64.tar.gz
+- mkdir geckodriver
+- tar -xzf geckodriver-v0.25.0-linux64.tar.gz -C geckodriver
+- export PATH=$PATH:$PWD/geckodriver
+- geckodriver --version
+- export MOZ_HEADLESS=1
+- chmod +x merge_script.sh
+- sudo apt-get install libgeoip-dev -y
+- sudo apt-get install python3-dev libmysqlclient-dev
+- mysql -e 'CREATE DATABASE cloud_database;
+
 #env:
 #  matrix:
 #  - MOZ_HEADLESS=1
@@ -38,43 +45,44 @@ stages:
 
 env:
   - PROJECT_DIR=$TRAVIS_BUILD_DIR
+
 jobs:
   allow_failures:
-    - stage: Test
-    - stage: Sonar-scanning
-#    - script: python manage.py test lists
+  - stage: Test
+  - stage: Sonar-scanning
+  - script: python manage.py test lists
   include:
   - stage: Test
 #    script: exit 1 || true
     before_install: skip
     install: skip
     script:
-#      - python manage.py test lists
-      - echo 'go'
-      - echo 'go1'
-      - pwd
-      - echo $PROJECT_DIR
-      - exit 1
+    - python manage.py test lists
+    - echo 'go'
+    - echo 'go1'
+    - pwd
+    - echo $PROJECT_DIR
+    - exit 1
 #    script: python manage.py test lists || true
   - stage: Sonar-scanning
     before_install: skip
     install: skip
     script:
-#      - python manage.py test lists
-      - echo 'go'
-      - echo 'go1'
-      - pwd
-      - echo $PROJECT_DIR
-#      - ./merge_script.sh
-      - exit 1
+    - python manage.py test lists
+    - echo 'go'
+    - echo 'go1'
+    - pwd
+    - echo $PROJECT_DIR
+#    - ./merge_script.sh
+    - exit 1
 #    script: sonar-scanner
   - stage: Quality Gate
     script:
-#      - python lists/scanner_result_process.py
-      - echo "Quality GAte"
+#    - python lists/scanner_result_process.py
+    - echo "Quality GAte"
   - stage: Deploy
     script:
-      - echo "Deploy"
+    - echo "Deploy"
 #  - stage: GitHub Release
 #    script: echo "Deploying to GitHub releases ..."
 #    deploy:
@@ -84,8 +92,10 @@ jobs:
 #        secure: ZEHKCmlvsLa215M4Bnnu+0UpZYzBIURVWRgviFmw7Q99HQnYYVcr5tJpAkBvrqY5kklXn63+0MvloeH1qzJsIyBJJszqDsIj/G5O/V8kSa/kEiELn4QPFl4xNnfpR9LO4a1GpzzGmoEFejKip3TxlxtJ92Xfm6FqSzka2S8XH/eCbp4/kUk7JNFtCHrxGnRwB9RHyfhVS+iUGKDvFdsdPn1V+bX4qwlobLDLihiaWHzNvfycDHSfjdzHD8qQnA6AkzS8H+MgrtchKFRAtHw46a0SJd3qNGzp/bMTzkhd43x1YhLBpGw0HKA5KaaAvOeWdoIVFdfMPHKZX5n/izfzsPYRxDhbr447mx6MYJRXVR3p4bTrYkwqnijZ6r4NT/7kg3UaqhJH7IkiOavzr4pNXw3w5S20MO2uJCup8msKEAqXn9LZkqIh9F0gT1zLwqwzN7JFwPXiQMp2w2VyYNUJnSB8JUpJUqG9A3gPAK5LkKekedKZy+ftAzGr3UtE5Uk0dXtPDMk/xpOAHSdkMg2IbtpItFVKvGjLWPwlaAIIMKShiLskwqLV78B7HUis8e/6FosDkbZ5eiLmcZ+jtVQiFyvCtUIq/Wo+BbePTMH5kOdy1qF1l9vLMHVP9ka6j4YzBhVPtuZzVsOpHdDPOvnfumOsHkTHbRtGO/PxvDZdT8Q=
 #      on:
 #        branch: staging
+
 branches:
   only:
   - master
   - staging
+
 #after_success: ./merge_script.sh
