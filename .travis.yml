@@ -16,8 +16,8 @@ before_install:
 - geckodriver --version
 - export MOZ_HEADLESS=1
 - chmod +x merge_script.sh
-- sudo apt-get install libgeoip-dev -y
-- sudo apt-get install python3-dev libmysqlclient-dev
+#- sudo apt-get install libgeoip-dev -y
+#- sudo apt-get install python3-dev libmysqlclient-dev
 - mysql -e 'CREATE DATABASE cloud_database'
 
 install:
@@ -45,6 +45,8 @@ addons:
   apt:
     packages:
     - libhdf5-serial-dev
+    - python3-dev
+    - libmysqlclient-dev
 
 stages:
 - Test
