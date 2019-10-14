@@ -29,6 +29,8 @@ before_install:
 #  - MOZ_HEADLESS=1
 
 stages:
+- Test
+- Sonar-scanning
 - name: Quality Gate
   if: branch = staging AND type = push
 - name: Deploy
