@@ -27,6 +27,13 @@ before_install:
 #env:
 #  matrix:
 #  - MOZ_HEADLESS=1
+
+stages:
+- name: Quality Gate
+  if: branch = staging AND type = push
+- name: Deploy
+  if: branch = staging AND type = push OR branch = master AND type = push
+
 env:
   - PROJECT_DIR=$TRAVIS_BUILD_DIR
 jobs:
@@ -59,8 +66,12 @@ jobs:
 #      - ./merge_script.sh
       - exit 1
 #    script: sonar-scanner
-#  - stage: Quality Gate
-#    script: python lists/scanner_result_process.py
+  - stage: Quality Gate
+    script:
+#      - python lists/scanner_result_process.py
+      - echo "Quality GAte"
+  - stage: Deploy
+    - echo "Deploy"
 #  - stage: GitHub Release
 #    script: echo "Deploying to GitHub releases ..."
 #    deploy:
