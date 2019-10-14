@@ -22,7 +22,7 @@ before_install:
 
 install:
 - pip install mysqlclient
-- pip install -r requirements.txt
+- pip install -r requirements_sonar_test.txt
 
 #addons:
 #  firefox: latest
@@ -35,6 +35,17 @@ install:
 #  matrix:
 #  - MOZ_HEADLESS=1
 
+cache:
+  directories:
+    - $HOME/.cache/pip
+    - $HOME/.cache/hdf5
+    - $HOME/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
+
+addons:
+  apt:
+    packages:
+    - libhdf5-serial-dev
+
 stages:
 - Test
 - Sonar-scanning
@@ -44,7 +55,11 @@ stages:
   if: branch = staging AND type = push OR branch = master AND type = push
 
 env:
-  - PROJECT_DIR=$TRAVIS_BUILD_DIR
+  global:
+    - PROJECT_DIR=$TRAVIS_BUILD_DIR
+    - PROJECT_SRC_MODULE=''
+    - TEST_MODULE=''
+    - HDF5_CACHE_DIR=$HOME/.cache/hdf5
 
 jobs:
   allow_failures:
