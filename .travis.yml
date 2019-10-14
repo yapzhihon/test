@@ -71,7 +71,8 @@ jobs:
 #      - python lists/scanner_result_process.py
       - echo "Quality GAte"
   - stage: Deploy
-    - echo "Deploy"
+    script:
+      - echo "Deploy"
 #  - stage: GitHub Release
 #    script: echo "Deploying to GitHub releases ..."
 #    deploy:
