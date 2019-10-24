@@ -75,15 +75,17 @@ jobs:
 #  - script: python manage.py test lists
   include:
   - stage: Test
+    language: minimal
     script:
     - echo "skip"
 ##    - python manage.py test lists
 ##    - python manage.py test lists || true
-#  - stage: Sonar-scanning
-#    before_install: skip
-#    install: skip
-#    script:
-#    - echo "skip"
+  - stage: Sonar-scanning
+    language: minimal
+    before_install: skip
+    install: skip
+    script:
+    - echo "skip"
 ##    script: sonar-scanner
 #  - stage: Quality Gate
 #    script:
